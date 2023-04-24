@@ -1,0 +1,5 @@
+REPOSITORY                TAG       IMAGE ID       CREATED          SIZE
+geralex/ubuntu-tmp-file   latest    54aca4aacf21   48 seconds ago   56.7MB
+nginx                     latest    9e7e7b26c784   12 days ago      135MB
+ubuntu                    18.04     c1adc1968c7b   6 weeks ago      56.7MB
+hello-world               latest    46331d942d63   13 months ago    9.14kB
