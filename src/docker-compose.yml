@@ -1,0 +1,52 @@
+version: '3.3'
+services:
+  post_db:
+    platform: ${PLATFORM}
+    container_name: ${CN_DB}
+    image: mongo:3.2
+    volumes:
+      - post_db:/data/db
+    networks:
+      - back_net
+  ui:
+    build: ./ui
+    platform: ${PLATFORM}
+    container_name: ${CN_UI}
+    image: ${USERNAME}/${UI_IMAGE}
+    ports:
+      - ${PORT}
+    networks:
+      - front_net
+  post:
+    build: ./post-py
+    platform: ${PLATFORM}
+    container_name: ${CN_POST}
+    image: ${USERNAME}/${POST_IMAGE}
+    networks:
+      - back_net
+      - front_net
+  comment:
+    build: ./comment
+    platform: ${PLATFORM}
+    container_name: ${CN_COMMENT}
+    image: ${USERNAME}/${COMMENT_IMAGE}
+    networks:
+      - back_net
+      - front_net
+
+volumes:
+  post_db:
+
+networks:
+  back_net:
+    driver: bridge
+    ipam:
+#      driver: default
+      config:
+        - subnet: ${BACK_DOCKER_SUBNET}
+  front_net:
+    driver: bridge
+    ipam:
+#      driver: default
+      config:
+        - subnet: ${FRONT_DOCKER_SUBNET}
