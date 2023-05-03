@@ -1,6 +1,12 @@
 # geralex_microservices
 geralex microservices repository
 
+ДЗ по docker-4
+
+ - Научлись собирать образы приложения reddit с помощью docker-compose
+ - Задать имя образа используя container_name, данная настройка вынесена так же в переменную .env
+
+
 ДЗ по docker-3
 
  - Загружено приложение reddit-microservices;
